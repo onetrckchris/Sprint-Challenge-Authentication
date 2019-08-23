@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
+
+import RegistrationForm from './views/sign-up/components/RegistrationForm';
+import LoginForm from './views/sign-in/components/LoginForm';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Authenticated Dad Jokes</h1>
+
+      <Route exact path="/api/auth/register" render={props => (
+        <RegistrationForm {...props} />
+      )} />
+
+      <Route exact path="/api/auth/login" render={props => (
+        <LoginForm {...props} />
+      )} />
     </div>
   );
 }

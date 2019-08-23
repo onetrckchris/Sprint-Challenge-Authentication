@@ -13,7 +13,7 @@ router.post('/register', (req, res) => {
   if(user.username && user.password) {
       Users.register(user)
           .then(id => res.status(201).json(id))
-          .catch(err => res.status(500).json({ error: err }));
+          .catch(err => res.status(500).json({ error: "There was a problem, sorry." }));
   } else {
       res.status(404).json({ error: "Please provide a username and password." })
   }
